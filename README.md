@@ -18,7 +18,7 @@ More informations about the package on [Packagist](https://packagist.org/package
 
 ## How to use?
 
-It's simple. The RequestHandler need a function for manage each connection:
+It's simple. The RequestHandler need a function for managing each connection:
 
 ```
 $requestHandler = new RequestHandler(function($request) {
