@@ -1,0 +1,28 @@
+{
+    "name":"yosymfony/httpserver",
+    "description": "A simple HTTP server",
+    "keywords": ["http", "server", "request", "react"],
+    "license": "MIT",
+    "homepage": "http://yosymfony.com",
+    "authors": [
+        {
+            "name": "Victor Puertas",
+            "email": "vpgugr@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "react/http": "0.5.*@dev",
+        "symfony/http-foundation": "~2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yosymfony\\HttpServer\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
