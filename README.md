@@ -3,6 +3,8 @@ A simple HTTP server for PHP
 
 HttpServer is a simple HTTP server powerd [REACT](http://reactphp.org/).
 
+[![Build Status](https://travis-ci.org/yosymfony/HttpServer.svg?branch=master)](https://travis-ci.org/yosymfony/HttpServer)
+
 ## Installation
 
 Use [Composer](http://getcomposer.org/) to install Yosyfmony HttpServer package:
