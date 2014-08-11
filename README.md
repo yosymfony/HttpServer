@@ -71,7 +71,6 @@ The most simple use-case is return a string. By default the `Content-Type` value
 $requestHandler = new RequestHandler( function($request) {
     return 'Hi Yo! Symfony';
 });
-
 ```
 
 If you want customize the status code and the response header you can return a array like this:
@@ -84,7 +83,6 @@ requestHandler = new RequestHandler( function($request) {
         'status_code' => 200
     ];
 });
-
 ```
 
 The best way to make a response is using [Response from Symfony HttpFoundation](http://symfony.com/doc/current/components/http_foundation/introduction.html#response):
@@ -99,7 +97,6 @@ requestHandler = new RequestHandler( function($request) {
         array('content-type' => 'text/html')
     );
 });
-
 ```
 
 ## Unit tests
