@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\Response;
  * 
  * @author Victor Puertas <vpgugr@gmail.com>
  */
-class RequestHandler
+class RequestHandler implements RequestHandlerInterface
 {
     protected $port = 8080;
     protected $host = '0.0.0.0';
@@ -71,9 +71,7 @@ class RequestHandler
     }
     
     /**
-     * Get the port configured
-     * 
-     * @return int
+     * @{inheritdoc}
      */
     public function getPort()
     {
@@ -81,9 +79,7 @@ class RequestHandler
     }
     
     /**
-     * Get the host configured
-     * 
-     * @return string
+     * @{inheritdoc}
      */
     public function getHost()
     {
@@ -91,9 +87,7 @@ class RequestHandler
     }
     
     /**
-     * Return the function that handle each request
-     * 
-     * @return callable
+     * @{inheritdoc}
      */
     public function getHandlerFunction()
     {
@@ -152,7 +146,7 @@ class RequestHandler
         
         $this->content = $result;
     }
-    
+
     protected function getDefaultHeaders()
     {
         return ['Content-Type' => 'text/plain'];
