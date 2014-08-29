@@ -6,5 +6,8 @@ php:
   - 5.6
 
 before_script:
-  - composer self-update
+  - composer self-update || true
   - composer install --dev --no-interaction
+
+script:
+  - php vendor/bin/phpunit

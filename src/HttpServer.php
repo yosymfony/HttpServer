@@ -26,9 +26,9 @@ class HttpServer
     /**
      * Constructor
      * 
-     * @param RequestHandler $requestHandler
+     * @param RequestHandlerInterface $requestHandler
      */
-    public function __construct(RequestHandler $requestHandler)
+    public function __construct(RequestHandlerInterface $requestHandler)
     {
         $this->requestHandler = $requestHandler;
     }
