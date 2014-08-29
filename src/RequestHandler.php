@@ -118,8 +118,8 @@ class RequestHandler implements RequestHandlerInterface
         if($result instanceof Response)
         {
             $this->statusCode = $result->getStatusCode();
-            $this->headers->$result->headers->all();
-            $this->content = $output->getContent();
+            $this->header = $result->headers->all();
+            $this->content = $result->getContent();
             
             return;
         }
