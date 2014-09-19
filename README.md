@@ -65,6 +65,23 @@ $requestHandler
     ->enableHttpFoundationRequest(); // $requestHandler uses fluent interface
 ```
 
+In case you want to use a HttpKernelInterface like Symfony, Silex oder Laravel, simple use the `HttpKernelRequestHandler` handler like this:
+```
+// Create our kernel.
+$httpKernel = new ExampleHttpKernel();
+$options = array(
+    'host' => '127.0.0.1',
+    'port' => 8081,
+);
+
+// Wrap it with the RequestHandler.
+$handler = new \Yosymfony\HttpServer\HttpKernelRequestHandler($httpKernel, $options);
+
+// Start the server using the RequestHandler.
+$server = new \Yosymfony\HttpServer\HttpServer($handler);
+$server->start();
+```
+
 ## The response
 
 The most simple use-case is return a string. By default the `Content-Type` value is `text/plain` at the response header:
