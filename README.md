@@ -15,7 +15,7 @@ Add the following to your `composer.json` and run `composer update`.
         "yosymfony/httpserverl": "1.0.x-dev"
     }
 
-More informations about the package on [Packagist](https://packagist.org/packages/yosymfony/httpserver).
+More information about the package on [Packagist](https://packagist.org/packages/yosymfony/httpserver).
 
 ## How to use?
 
