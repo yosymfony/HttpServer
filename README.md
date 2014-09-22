@@ -65,7 +65,7 @@ $requestHandler
     ->enableHttpFoundationRequest(); // $requestHandler uses fluent interface
 ```
 
-In case you want to use a HttpKernelInterface like Symfony, Silex oder Laravel, simple use the `HttpKernelRequestHandler` handler like this:
+In case you want to use a HttpKernelInterface like Symfony, Silex or Laravel, simple use the `HttpKernelRequestHandler` handler like this:
 ```
 // Create our kernel.
 $httpKernel = new ExampleHttpKernel();
