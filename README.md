@@ -12,7 +12,7 @@ Use [Composer](http://getcomposer.org/) to install Yosyfmony HttpServer package:
 Add the following to your `composer.json` and run `composer update`.
 
     "require": {
-        "yosymfony/httpserverl": "1.0.x-dev"
+        "yosymfony/httpserverl": "1.2.x-dev"
     }
 
 More information about the package on [Packagist](https://packagist.org/packages/yosymfony/httpserver).
