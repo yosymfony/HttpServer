@@ -27,6 +27,8 @@ class HttpKernelRequestHandler implements RequestHandlerInterface
     protected $httpKernel;
     protected $handlerFunction;
     protected $options;
+    protected $request;
+    protected $response;
 
     function __construct(HttpKernelInterface $httpKernel, array $options = array())
     {
@@ -68,25 +70,44 @@ class HttpKernelRequestHandler implements RequestHandlerInterface
         return $this->options['host'];
     }
 
+    /**
+     * @{inheritdoc}
+     */
+    public function setRequest($request) {
+        $this->request  = $request;
+    }
+
+    /**
+     * @{inheritdoc}
+     */
+    public function setResponse($response) {
+        $this->response  = $response;
+    }
+    
     protected function prepareHandlerFunction()
     {
         $this->handlerFunction = function(ReactRequest $reactRequest, ReactResponse $reactResponse)
         {
-            // Create symfony request and response.
-            $symfonyRequest = SymfonyRequest::create(
-                $reactRequest->getPath(),
-                $reactRequest->getMethod(),
-                $reactRequest->getQuery()
-            );
-            $symfonyResponse = $this->httpKernel->handle($symfonyRequest);
+            if($this->request == null) {
+                // Create symfony request and response.
+                $this->request = SymfonyRequest::create(
+                    $reactRequest->getPath(),
+                    $reactRequest->getMethod(),
+                    $reactRequest->getQuery()
+                );
+            }
+
+            if($this->response == null) {
+                $this->response = $this->httpKernel->handle($this->request);
+            }
 
             // Give response to React.
-            $reactResponse->writeHead($symfonyResponse->getStatusCode(), $symfonyResponse->headers->all());
-            $reactResponse->end($symfonyResponse->getContent());
+            $reactResponse->writeHead($this->response->getStatusCode(), $this->response->headers->all());
+            $reactResponse->end($this->response->getContent());
 
             // Trigger HttpKernel terminate event.
             if($this->httpKernel instanceof TerminableInterface) {
-                $this->httpKernel->terminate($symfonyRequest, $symfonyResponse);
+                $this->httpKernel->terminate($this->request, $this->response);
             }
         };
     }
